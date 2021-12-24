@@ -1,17 +1,20 @@
 const Data = [
   {
-    name: 'Hila',
-    num: 1,
+    name: 'Dog',
+    url: 'https://picsum.photos/id/237/200/300',
+    id: 1,
   },
 
   {
-    name: 'Tamar',
-    num: 2,
+    name: 'NewYork',
+    url: 'https://picsum.photos/id/238/200/300',
+    id: 2,
   },
 
   {
-    name: 'Sivan',
-    num: 3,
+    name: 'Wall',
+    url: 'https://picsum.photos/id/240/200/300',
+    id: 3,
   },
 ];
 export default Data;

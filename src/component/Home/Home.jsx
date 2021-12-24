@@ -4,40 +4,54 @@ import Btnandcounter from '../Btnandcouner/Btnandcounter';
 
 export class Home extends Component {
   state = {
-    // ArrOfData: Data;
     counter1: 0,
     counter2: 0,
+    index: 0,
   };
   addToCounter = (counter) => {
-    this.setState({ [counter]: this.state[counter] + 1 });
-    const DataName = Data.map((nameElement) => {
-      console.log(nameElement);
-      return <div> {nameElement.name}</div>;
-    });
-    return DataName;
+    if (Data[this.state.index + 1]) {
+      this.setState({ [counter]: this.state[counter] + 1 });
+      this.setState({ index: this.state.index + 1 });
+    } else {
+      return;
+    }
   };
 
-  // printData = () => {
-  //   console.log(Data);
-  // };
+  nameMap = () => {
+    // const DataName = Data.map((imageElement) => {
+    //   return imageElement;
+    // });
+    //nameelement.url = data.url == > data.url[0] => first photo
+    // alt={'Girl in a jacket'}
+    return (
+      <div>
+        <img src={`${Data[this.state.index].url}`} alt={'Girl'}></img>
+        <div>{Data[this.state.index].name}</div>
+        {/* <img src={`${DataName[this.state.index].url}`}></img>
+        <div>{DataName[this.state.index].name}</div> */}
+      </div>
+    );
+  };
+
   render() {
     return (
       <div>
-        {/* {this.printData()} */}
         <Btnandcounter
+          nameOfButton="Like"
           counterLabel={this.state.counter1}
           handleClick={() => {
             this.addToCounter('counter1');
           }}
         />
+        <div className="show-name">{this.nameMap()}</div>
         <Btnandcounter
+          nameOfButton="UnLike"
           counterLabel={this.state.counter2}
           handleClick={() => {
             this.addToCounter('counter2');
           }}
         />
-        <div> </div>
-        {/* <div> {this.state.counter1}</div> */}
+        {/* <div>{this.printData()}</div> */}
       </div>
     );
   }
